@@ -1,10 +1,10 @@
-const db= require("./db")
+const db = require("./db")
 
-async function criar_estrutura(){
+async function criar_tabelas(){
 try{
     await db.pool.query(
 
-`DROP TABLE IF EXIST Cliente
+`DROP TABLE IF EXISTS Cliente;
 CREATE TABLE Cliente (
     ID int NOT NULL AUTO_INCREMENT,
     Nome varchar(50) NOT NULL,
@@ -26,6 +26,8 @@ process.exit(0);
     }
     catch (error){
         console.log(error)
+        process.exit(1);
     
     }
 }
+criar_tabelas()

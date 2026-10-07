@@ -9,8 +9,14 @@
 // ​http://localhost:3000/cliente
 const express = require("express")
 const app = express()
-const port = 3000
+
+const dotenv = require("dotenv")
+dotenv.config()
+
+const port = process.env.API_PORT
 app.use(express.json())
+
+
 
 const db = require("./db")
 
@@ -18,8 +24,7 @@ const bcrypt = require("bcrypt")
 
 const jwt = require("jsonwebtoken")
 
-const dotenv = require("dotenv")
-dotenv.config()
+
 
 const cors = require("cors")
 app.use(cors())
